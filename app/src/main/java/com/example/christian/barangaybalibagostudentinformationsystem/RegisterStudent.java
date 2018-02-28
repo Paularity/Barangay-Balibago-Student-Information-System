@@ -31,7 +31,7 @@ import java.util.ArrayList;
 
 public class RegisterStudent extends AppCompatActivity {
 
-    EditText et_fullname,et_dateOfBirth,et_placeOfBirth,et_citizenship,et_comelecNo,et_dateIssued;
+    EditText et_fullname,et_dateOfBirth,et_placeOfBirth,et_citizenship,et_comelecNo,et_dateIssued,et_username,et_password;
     Button btn_upload,btn_register;
     ImageView image;
 
@@ -47,7 +47,7 @@ public class RegisterStudent extends AppCompatActivity {
 
         init();
         databaseHelper = new DatabaseHelper(this,"studentDB.sqlite",null,1);
-        databaseHelper.queryData("CREATE TABLE IF NOT EXISTS STUDENT (id INTEGER PRIMARY KEY AUTOINCREMENT, fullname VARCHAR,dateOfBirth VARCHAR,placeOfBirth VARCHAR,citizenship VARCHAR,comelecNo VARCHAR,dateIssued VARCHAR,image BLOB)");
+        databaseHelper.queryData("CREATE TABLE IF NOT EXISTS STUDENT (id INTEGER PRIMARY KEY AUTOINCREMENT, fullname VARCHAR,dateOfBirth VARCHAR,placeOfBirth VARCHAR,citizenship VARCHAR,comelecNo VARCHAR,dateIssued VARCHAR,image BLOB,username VARCHAR, password VARCHAR)");
 
         btn_upload.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,9 +71,13 @@ public class RegisterStudent extends AppCompatActivity {
                             et_citizenship.getText().toString().trim(),
                             et_comelecNo.getText().toString().trim(),
                             et_dateIssued.getText().toString().trim(),
-                            imageViewToByte(image)
+                            imageViewToByte(image),
+                            et_username.getText().toString().trim(),
+                            et_password.getText().toString().trim()
                     );
                     Toast.makeText(getApplicationContext(),"Student was added successfully!", Toast.LENGTH_SHORT).show();
+                    et_username.setText("");
+                    et_password.setText("");
                     et_fullname.setText("");
                     et_dateOfBirth.setText("");
                     et_placeOfBirth.setText("");
@@ -145,6 +149,8 @@ public class RegisterStudent extends AppCompatActivity {
 
     private void init()
     {
+        et_username = (EditText) findViewById(R.id.et_username);
+        et_password =  (EditText) findViewById(R.id.et_password);
         et_fullname = (EditText) findViewById(R.id.et_fullname);
         et_dateOfBirth = (EditText) findViewById(R.id.et_dateOfBirth);
         et_placeOfBirth = (EditText) findViewById(R.id.et_placeOfBirth);

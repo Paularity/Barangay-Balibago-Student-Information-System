@@ -24,11 +24,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void insertData(String fullname, String dateOfBirth,String placeOfBirth,String citizenship, String comelecNo, String dateIssued, byte[] image)
+    public void insertData(String fullname, String dateOfBirth,String placeOfBirth,String citizenship, String comelecNo, String dateIssued, byte[] image,String username, String password)
     {
         SQLiteDatabase db = getWritableDatabase();
-        String sql = "INSERT INTO STUDENT VALUES (NULL,?,?,?,?,?,?,?)";
-        SQLiteStatement statement = db.compileStatement(sql);
+        String sql = "INSERT INTO STUDENT VALUES (NULL,?,?,?,?,?,?,?,?,?)";SQLiteStatement statement = db.compileStatement(sql);
 
         statement.clearBindings();
         statement.bindString(1, fullname);
@@ -38,6 +37,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         statement.bindString(5, comelecNo);
         statement.bindString(6, dateIssued);
         statement.bindBlob(7, image);
+        statement.bindString(8, username);
+        statement.bindString(9, password);
 
         statement.executeInsert();
     }
@@ -46,6 +47,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     {
         SQLiteDatabase db = getReadableDatabase();
         return db.rawQuery(sql, null);
+    }
+
+    public void deleteData(String id)
+    {
+        SQLiteDatabase db = getWritableDatabase();
+        String sql = "DELETE FROM STUDENT WHERE id = " + id;
+        db.execSQL(sql);
+        db.close();
     }
 
     @Override

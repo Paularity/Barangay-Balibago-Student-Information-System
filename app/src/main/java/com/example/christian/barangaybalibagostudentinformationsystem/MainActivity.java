@@ -1,6 +1,7 @@
 package com.example.christian.barangaybalibagostudentinformationsystem;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -26,7 +27,7 @@ import java.io.InputStream;
 public class MainActivity extends AppCompatActivity {
 
 
-    Button btn_login;
+    Button btn_login,btn_register;
     EditText et_username,et_password;
 
 
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         btn_login = (Button) findViewById(R.id.btn_login);
+        btn_register = (Button) findViewById(R.id.btn_register);
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,6 +67,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        btn_register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RegisterStudent.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
@@ -76,9 +86,13 @@ public class MainActivity extends AppCompatActivity {
         if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis())
         {
             super.onBackPressed();
+
             return;
         }
-        else { Toast.makeText(getBaseContext(), "Tap back button in order to exit", Toast.LENGTH_SHORT).show(); }
+        else {
+            Toast.makeText(getBaseContext(), "Tap back button in order to exit", Toast.LENGTH_SHORT).show();
+
+        }
 
         mBackPressed = System.currentTimeMillis();
     }

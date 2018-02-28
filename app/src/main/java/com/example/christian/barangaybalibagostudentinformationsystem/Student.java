@@ -6,6 +6,10 @@ package com.example.christian.barangaybalibagostudentinformationsystem;
 
 public class Student {
     private int id;
+
+
+    private String username;
+    private String password;
     private String fullname;
     private String dateOfBirth;
     private String placeOfBirth;
@@ -14,7 +18,7 @@ public class Student {
     private String dateIssued;
     private byte[] image;
 
-    public Student(int id, String fullname, String dateOfBirth, String placeOfBirth, String citizenship, String comelecNo, String dateIssued, byte[] image) {
+    public Student(int id, String fullname, String dateOfBirth, String placeOfBirth, String citizenship, String comelecNo, String dateIssued, byte[] image, String username, String password) {
         this.id = id;
         this.fullname = fullname;
         this.dateOfBirth = dateOfBirth;
@@ -23,6 +27,24 @@ public class Student {
         this.comelecNo = comelecNo;
         this.dateIssued = dateIssued;
         this.image = image;
+        this.username = username;
+        this.password = password;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getId() {

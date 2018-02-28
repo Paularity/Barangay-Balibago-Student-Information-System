@@ -54,16 +54,8 @@ public class NavigationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                try{
                     Intent intent = new Intent(NavigationActivity.this, StudentList.class);
                     startActivity(intent);
-                }
-                catch (Exception ex)
-                {
-                    Toast.makeText(getApplicationContext(),"Something went wrong",Toast.LENGTH_SHORT).show();
-                    ex.printStackTrace();
-                }
-
             }
         });
 

@@ -164,12 +164,70 @@
         android:text="Date Issued here.."
         android:textSize="20dp" />
 
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username:"
+        android:id="@+id/lbl_username"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_below="@id/lbl_dateIssued"
+        />
+
+    <TextView
+        android:id="@+id/txt_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lbl_username"
+        android:layout_alignBottom="@+id/lbl_username"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/lbl_username"
+        android:layout_toRightOf="@+id/lbl_username"
+        android:text="Username here.."
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password:"
+        android:id="@+id/lbl_password"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_below="@id/lbl_username"
+        />
+
+    <TextView
+        android:id="@+id/txt_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lbl_password"
+        android:layout_alignBottom="@+id/lbl_password"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/lbl_password"
+        android:layout_toRightOf="@+id/lbl_password"
+        android:text="Password here.."
+        android:textSize="20dp" />
+
+    <Button
+        android:text="DELETE STUDENT"
+        android:id="@+id/btn_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/lbl_password"
+        android:backgroundTint="#ff0c00"
+        android:textColor="#ffff"
+        />
+
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@android:color/darker_gray"
-        android:layout_below="@id/lbl_dateIssued"
+        android:layout_below="@id/btn_delete"
+
         />
+
 
 
 </RelativeLayout>

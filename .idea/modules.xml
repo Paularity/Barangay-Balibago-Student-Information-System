@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/BarangayBalibagoStudentInformationSystem.iml" filepath="$PROJECT_DIR$/BarangayBalibagoStudentInformationSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Barangay-Balibago-Student-Information-System.iml" filepath="$PROJECT_DIR$/Barangay-Balibago-Student-Information-System.iml" />
+      <module fileurl="file://C:\Users\CJhay\AndroidStudioProjects\Barangay-Balibago-Student-Information-System\BarangayBalibagoStudentInformationSystem.iml" filepath="C:\Users\CJhay\AndroidStudioProjects\Barangay-Balibago-Student-Information-System\BarangayBalibagoStudentInformationSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
