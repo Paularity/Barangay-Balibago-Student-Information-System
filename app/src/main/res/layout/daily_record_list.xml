@@ -211,14 +211,15 @@
         android:textSize="20dp" />
 
     <Button
-        android:text="DELETE STUDENT"
         android:id="@+id/btn_delete"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/lbl_password"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/lbl_password"
         android:backgroundTint="#ff0c00"
-        android:textColor="#ffff"
-        />
+        android:text="DELETE"
+        android:textColor="#ffff" />
 
     <View
         android:layout_width="match_parent"

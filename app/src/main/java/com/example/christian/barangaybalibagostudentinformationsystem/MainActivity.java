@@ -2,8 +2,11 @@ package com.example.christian.barangaybalibagostudentinformationsystem;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -11,6 +14,7 @@ import android.media.Image;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     Button btn_login,btn_register;
     EditText et_username,et_password;
 
+    Cursor cursor;
+    DatabaseHelper dbhelper;
+    SQLiteDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,28 +47,55 @@ public class MainActivity extends AppCompatActivity {
         et_password =  (EditText) findViewById(R.id.et_password);
 
 
-
         btn_login = (Button) findViewById(R.id.btn_login);
         btn_register = (Button) findViewById(R.id.btn_register);
+
+
+        //Opening SQLite Pipeline
+        dbhelper = new DatabaseHelper(this, "studentDB.sqlite", null, 1);
+        db = dbhelper.getReadableDatabase();
 
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 final String username = String.valueOf(et_username.getText());
                 final String password = String.valueOf(et_password.getText());
-
-                if(username.equals("a") && password.equals("a"))
+                String sql = "SELECT *FROM STUDENT WHERE username = ? AND password=?";
+                cursor = db.rawQuery( sql, new String[] {username,password});
+                if(username.equals("admin") && password.equals("admin"))
                 {
                     Intent intent = new Intent(MainActivity.this, NavigationActivity.class);
                     startActivity(intent);
+                    Toast.makeText(getApplicationContext(),"Welcome Admin!",Toast.LENGTH_SHORT).show();
+                }
+
+                else  if(cursor.getCount() > 0) {
+                    Intent intent = new Intent(MainActivity.this, ResidentNavigationActivity.class);
+                    startActivity(intent);
+                    intent.putExtra(username, password);
                     Toast.makeText(getApplicationContext(),"Login Successfully.",Toast.LENGTH_SHORT).show();
                 }
+
                 else
                 {
+                    Toast.makeText(getApplicationContext(),"Username or Password is wrong.", Toast.LENGTH_SHORT).show();
 
-                    et_username.setText("");
-                    et_password.setText("");
-                    Toast.makeText(getApplicationContext(),"Invalid username/password, please try again.",Toast.LENGTH_SHORT).show();
+//                    et_username.setText("");
+//                    et_password.setText("");
+//                    final AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+//                    builder.setTitle("Alert");
+//                    builder.setMessage("Username or Password is wrong.");
+//                    builder.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//
+//                            dialogInterface.dismiss();
+//
+//                        }
+//                    });
+//
+//                    AlertDialog dialog = builder.create();
+//                    dialog.show();
                 }
 
             }
