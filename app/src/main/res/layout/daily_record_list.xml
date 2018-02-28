@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="20dp"
+    >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ID NO:"
+        android:id="@+id/lbl_ID"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        />
+
+    <TextView
+        android:id="@+id/txt_ID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lbl_ID"
+        android:layout_alignBottom="@+id/lbl_ID"
+        android:layout_toEndOf="@+id/lbl_ID"
+        android:layout_toRightOf="@+id/lbl_ID"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        android:text="ID number display here.." />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fullname:"
+        android:id="@+id/lbl_fullname"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_below="@id/lbl_ID"
+        />
+
+    <TextView
+        android:id="@+id/txt_fullname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lbl_fullname"
+        android:layout_alignBottom="@+id/lbl_fullname"
+        android:layout_toEndOf="@+id/lbl_fullname"
+        android:layout_toRightOf="@+id/lbl_fullname"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        android:text="Fullname display here.." />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Citizenship:"
+        android:id="@+id/lbl_citizenship"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_below="@id/lbl_fullname"
+        />
+    <TextView
+        android:id="@+id/txt_citizenship"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lbl_citizenship"
+        android:layout_alignBottom="@+id/lbl_citizenship"
+        android:layout_toEndOf="@+id/lbl_citizenship"
+        android:layout_toRightOf="@+id/lbl_citizenship"
+        android:layout_marginLeft="10dp"
+        android:textSize="20dp"
+        android:text="Citizenship display here.." />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date of Birth:"
+        android:id="@+id/lbl_dateOfBirth"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_below="@id/lbl_citizenship"
+        />
+
+    <TextView
+        android:id="@+id/txt_dateOfBirth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lbl_dateOfBirth"
+        android:layout_alignBottom="@+id/lbl_dateOfBirth"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/lbl_dateOfBirth"
+        android:layout_toRightOf="@+id/lbl_dateOfBirth"
+        android:text="Date of Birth here.."
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Place of Birth:"
+        android:id="@+id/lbl_placeOfBirth"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_below="@id/lbl_dateOfBirth"
+        />
+
+    <TextView
+        android:id="@+id/txt_placeOfBirth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lbl_placeOfBirth"
+        android:layout_alignBottom="@+id/lbl_placeOfBirth"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/lbl_placeOfBirth"
+        android:layout_toRightOf="@+id/lbl_placeOfBirth"
+        android:text="Place of Birth here.."
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Comelec Number:"
+        android:id="@+id/lbl_comelecNo"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_below="@id/lbl_placeOfBirth"
+        />
+
+    <TextView
+        android:id="@+id/txt_comelecNo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lbl_comelecNo"
+        android:layout_alignBottom="@+id/lbl_comelecNo"
+        android:layout_marginLeft="13dp"
+        android:layout_marginStart="13dp"
+        android:layout_toEndOf="@+id/lbl_comelecNo"
+        android:layout_toRightOf="@+id/lbl_comelecNo"
+        android:text="Comelec Numb.."
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date Issued:"
+        android:id="@+id/lbl_dateIssued"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_below="@id/lbl_comelecNo"
+        />
+
+    <TextView
+        android:id="@+id/txt_dateIssued"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/lbl_dateIssued"
+        android:layout_alignBottom="@+id/lbl_dateIssued"
+        android:layout_marginLeft="10dp"
+        android:layout_toEndOf="@+id/lbl_dateIssued"
+        android:layout_toRightOf="@+id/lbl_dateIssued"
+        android:text="Date Issued here.."
+        android:textSize="20dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        android:layout_below="@id/lbl_dateIssued"
+        />
+
+
+</RelativeLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#000000">
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.christian.barangaybalibagostudentinformationsystem.MainActivity"
+    android:padding="10dp"
+
+    >
+
+
+
+
+    <ImageView
+        android:layout_marginTop="50sp"
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/balibago" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MENU:"
+        android:layout_below="@id/imageView"
+        android:id="@+id/txtMenu"
+        android:textSize="30sp"
+        android:textColor="#ffffff"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginTop="50sp"
+        android:layout_marginBottom="10sp"
+        />
+   <Button
+       android:id="@+id/btn_register"
+       android:layout_below="@+id/txtMenu"
+       android:layout_width="150sp"
+       android:layout_height="match_parent"
+       android:text="REGISTER STUDENT"
+       android:layout_marginRight="50sp"
+       android:layout_marginLeft="50sp"
+       android:layout_centerHorizontal="true"
+       />
+
+    <Button
+        android:id="@+id/btn_viewProfile"
+        android:layout_below="@+id/btn_register"
+        android:layout_width="150sp"
+        android:layout_height="match_parent"
+        android:text="VIEW PROFILES"
+        android:layout_marginRight="50sp"
+        android:layout_marginLeft="50sp"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/btn_dailyRecord"
+        android:layout_below="@+id/btn_viewProfile"
+        android:layout_width="150sp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="DAILY RECORDS"
+        android:layout_marginRight="50sp"
+        android:layout_marginLeft="50sp"
+        android:layout_centerHorizontal="true"/>
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_below="@+id/btn_viewProfile"
+        android:layout_width="150sp"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="LOGOUT"
+        android:layout_marginTop="70sp"
+        android:layout_marginRight="50sp"
+        android:layout_marginLeft="50sp"
+        android:layout_centerHorizontal="true"/>
+</RelativeLayout>
+</ScrollView>

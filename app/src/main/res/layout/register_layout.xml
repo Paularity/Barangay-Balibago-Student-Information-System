@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.christian.barangaybalibagostudentinformationsystem.MainActivity"
+    android:padding="10dp"
+    >
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:textSize="30dp"
+        android:ems="10"
+        android:text="REGISTER"
+        android:textStyle="bold"
+        />
+
+    <EditText
+        android:id="@+id/et_fullname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tv_register"
+        android:layout_marginTop="17dp"
+        android:ems="10"
+        android:hint="Fullname(Lastname, Firstname, Middlename)"
+        android:inputType="text" />
+
+    <EditText
+        android:id="@+id/et_dateOfBirth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et_fullname"
+        android:layout_alignStart="@+id/et_fullname"
+        android:layout_below="@+id/et_fullname"
+        android:ems="10"
+        android:hint="Date of Birth"
+        android:inputType="date" />
+
+    <EditText
+        android:id="@+id/et_placeOfBirth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/et_dateOfBirth"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Place of Birth" />
+
+    <EditText
+        android:id="@+id/et_citizenship"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/et_placeOfBirth"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Citizenship" />
+    <EditText
+        android:id="@+id/et_comelecNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/et_citizenship"
+        android:ems="10"
+        android:inputType="number"
+        android:hint="Comelec Number" />
+    <EditText
+        android:id="@+id/dt_dateIssued"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/et_comelecNo"
+        android:ems="10"
+        android:inputType="date"
+        android:hint="Date Issued" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/et_citizenship"
+        android:layout_alignStart="@+id/et_citizenship"
+        android:layout_below="@+id/dt_dateIssued"
+        android:layout_marginLeft="17dp"
+        android:layout_marginStart="17dp"
+        app:srcCompat="@mipmap/ic_launcher" />
+
+    <Button
+        android:id="@+id/btn_upload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dt_dateIssued"
+        android:layout_marginLeft="39dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="24dp"
+        android:layout_toEndOf="@+id/image"
+        android:layout_toRightOf="@+id/image"
+        android:text="Choose Image" />
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/image"
+        android:layout_alignStart="@+id/image"
+        android:layout_below="@+id/image"
+        android:layout_marginTop="30dp"
+        android:text="REGISTER" />
+
+
+
+</RelativeLayout>
+</ScrollView>
