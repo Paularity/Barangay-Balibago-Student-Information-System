@@ -53,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
         //Opening SQLite Pipeline
         dbhelper = new DatabaseHelper(this, "studentDB.sqlite", null, 1);
+        dbhelper.queryData("CREATE TABLE IF NOT EXISTS STUDENT (id INTEGER PRIMARY KEY AUTOINCREMENT, fullname VARCHAR,dateOfBirth VARCHAR,placeOfBirth VARCHAR,citizenship VARCHAR,comelecNo VARCHAR,dateIssued VARCHAR,image BLOB,username VARCHAR, password VARCHAR)");
+
         db = dbhelper.getReadableDatabase();
 
         btn_login.setOnClickListener(new View.OnClickListener() {
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 final String username = String.valueOf(et_username.getText());
                 final String password = String.valueOf(et_password.getText());
-                String sql = "SELECT *FROM STUDENT WHERE username = ? AND password=?";
+                String sql = "SELECT * FROM STUDENT WHERE username = ? AND password=?";
                 cursor = db.rawQuery( sql, new String[] {username,password});
                 if(username.equals("admin") && password.equals("admin"))
                 {

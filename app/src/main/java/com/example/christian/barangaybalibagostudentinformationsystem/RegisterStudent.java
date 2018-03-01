@@ -64,6 +64,19 @@ public class RegisterStudent extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 try {
+                    String fullname = et_fullname.getText().toString();
+                    String dateOfBirth = et_dateOfBirth.getText().toString();
+                    String placeOfBirth = et_placeOfBirth.getText().toString();
+                    String citizenship = et_citizenship.getText().toString();
+                    String comelecNo = et_comelecNo.getText().toString();
+                    String dateIssued = et_dateIssued.getText().toString();
+                    byte[] imageView = imageViewToByte(image);
+                    String username = et_username.getText().toString();
+                    String password = et_password.getText().toString();
+
+                if(!fullname.equals("") && !dateOfBirth.equals("") && !dateOfBirth.equals("") && !placeOfBirth.equals("") &&
+                        !citizenship.equals("") && !comelecNo.equals("") && !dateIssued.equals("") && !imageView.equals("")
+                        && !username.equals("") && !password.equals("")) {
                     databaseHelper.insertData(
                             et_fullname.getText().toString().trim(),
                             et_dateOfBirth.getText().toString().trim(),
@@ -75,7 +88,7 @@ public class RegisterStudent extends AppCompatActivity {
                             et_username.getText().toString().trim(),
                             et_password.getText().toString().trim()
                     );
-                    Toast.makeText(getApplicationContext(),"Student was added successfully!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), "Student was added successfully!", Toast.LENGTH_SHORT).show();
                     et_username.setText("");
                     et_password.setText("");
                     et_fullname.setText("");
@@ -85,6 +98,11 @@ public class RegisterStudent extends AppCompatActivity {
                     et_comelecNo.setText("");
                     et_dateIssued.setText("");
                     image.setImageResource(R.mipmap.ic_launcher);
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"Please fill in the blank/s",Toast.LENGTH_SHORT).show();
+                }
                 }
 
                 catch (Exception e)

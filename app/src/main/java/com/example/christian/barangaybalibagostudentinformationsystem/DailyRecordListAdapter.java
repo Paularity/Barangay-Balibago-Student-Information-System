@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.support.v7.widget.AppCompatButton;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,7 +54,7 @@ public class DailyRecordListAdapter extends BaseAdapter {
     {
 
         TextView txt_ID,txt_fullname,txt_dateOfBirth,txt_placeOfBirth,txt_citizenship,txt_comelecNo,txt_dateIssued,txt_username,txt_password;
-        Button btn_delete;
+        AppCompatButton btn_delete;
     }
 
     @Override
@@ -74,7 +75,7 @@ public class DailyRecordListAdapter extends BaseAdapter {
             holder.txt_dateIssued = (TextView) row.findViewById(R.id.txt_dateIssued);
             holder.txt_username = (TextView) row.findViewById(R.id.txt_username);
             holder.txt_password = (TextView) row.findViewById(R.id.txt_password);
-            holder.btn_delete = (Button) row.findViewById(R.id.btn_delete);
+            holder.btn_delete = (AppCompatButton) row.findViewById(R.id.btn_delete);
             row.setTag(holder);
 
 
