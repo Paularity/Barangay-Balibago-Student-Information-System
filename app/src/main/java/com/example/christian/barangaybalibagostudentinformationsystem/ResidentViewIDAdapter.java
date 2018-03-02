@@ -1,11 +1,14 @@
 package com.example.christian.barangaybalibagostudentinformationsystem;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -44,7 +47,7 @@ public class ResidentViewIDAdapter extends BaseAdapter {
 
     private class viewHolder
     {
-
+        ImageView imageView;
         TextView txt_ID,txt_fullname,txt_dateOfBirth,txt_placeOfBirth,txt_citizenship,txt_comelecNo,txt_dateIssued,txt_username,txt_password;
     }
 
@@ -64,6 +67,7 @@ public class ResidentViewIDAdapter extends BaseAdapter {
             holder.txt_placeOfBirth = (TextView) row.findViewById(R.id.tv_placeOfBirth);
             holder.txt_comelecNo = (TextView) row.findViewById(R.id.tv_comelecNo);
             holder.txt_dateIssued = (TextView) row.findViewById(R.id.tv_dateIssued);
+            holder.imageView = (ImageView) row.findViewById(R.id.imageView);
             row.setTag(holder);
 
 
@@ -83,6 +87,9 @@ public class ResidentViewIDAdapter extends BaseAdapter {
         holder.txt_placeOfBirth.setText(student.getPlaceOfBirth());
         holder.txt_comelecNo.setText(student.getComelecNo());
         holder.txt_dateIssued.setText(student.getDateIssued());
+        byte[] studentImage = student.getImage();
+        Bitmap bitmap = BitmapFactory.decodeByteArray(studentImage,0,studentImage.length);
+        holder.imageView.setImageBitmap(bitmap);
         return row;
     }
 

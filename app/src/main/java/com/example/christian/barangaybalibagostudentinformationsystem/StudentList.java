@@ -42,8 +42,8 @@ public class StudentList extends AppCompatActivity {
                 String comelecNo = cursor.getString(5);
                 String dateIssued = cursor.getString(6);
                 byte[] image = cursor.getBlob(7);
-                String username = cursor.getString(6);
-                String password = cursor.getString(6);
+                String username = cursor.getString(8);
+                String password = cursor.getString(9);
 
                 list.add(new Student(id, fullname, dateOfBirth, placeOfBirth, citizenship, comelecNo, dateIssued, image, username, password));
 

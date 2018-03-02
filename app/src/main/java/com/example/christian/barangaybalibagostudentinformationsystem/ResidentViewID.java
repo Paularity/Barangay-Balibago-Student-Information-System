@@ -22,7 +22,7 @@ public class ResidentViewID extends AppCompatActivity {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-    try{
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.resident_id_layout);
         DatabaseHelper databaseHelper = new DatabaseHelper(this, "studentDB.sqlite", null, 1);
@@ -63,30 +63,6 @@ public class ResidentViewID extends AppCompatActivity {
 
         }
 
-    }catch(Exception ex)
-    {
-        Toast.makeText(getApplicationContext(),"No record/s found!",Toast.LENGTH_SHORT).show();
-    }
-
-    }
-
-
-    private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
-    private long mBackPressed;
-    @Override
-    public void onBackPressed()
-    {
-        if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis())
-        {
-            super.onBackPressed();
-            return;
-        }
-        else {
-            Intent intent = new Intent(ResidentViewID.this, ResidentNavigationActivity.class);
-            startActivity(intent);
-        }
-
-        mBackPressed = System.currentTimeMillis();
     }
 
 }

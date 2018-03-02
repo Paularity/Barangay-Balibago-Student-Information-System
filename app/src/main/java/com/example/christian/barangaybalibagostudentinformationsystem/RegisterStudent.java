@@ -84,7 +84,7 @@ public class RegisterStudent extends AppCompatActivity {
 
                 if(!fullname.equals("") && !dateOfBirth.equals("") && !dateOfBirth.equals("") && !placeOfBirth.equals("") &&
                         !citizenship.equals("") && !comelecNo.equals("") && !dateIssued.equals("") && !imageView.equals("")
-                        && !username.equals("") && !password.equals("")) {
+                        && !username.equals("") && !password.equals("") && !username.equals("admin")) {
                     if(cursor.getCount() == 0) {
                         databaseHelper.insertData(
                                 et_fullname.getText().toString().trim(),
@@ -108,6 +108,8 @@ public class RegisterStudent extends AppCompatActivity {
                         et_dateIssued.setText("");
                         image.setImageResource(R.mipmap.ic_launcher);
                     }
+
+
                     else
                         {
                             Toast.makeText(getApplicationContext(),"Resident already exists",Toast.LENGTH_SHORT).show();

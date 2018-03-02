@@ -18,7 +18,7 @@ import android.widget.Toast;
 public class ResidentNavigationActivity extends AppCompatActivity {
 
 
-    Button btn_register,btn_viewProfile,btn_viewID,btn_logout;
+    Button btn_viewProfile,btn_viewID,btn_logout;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,12 +47,12 @@ public class ResidentNavigationActivity extends AppCompatActivity {
         }
 
 
+
         btn_viewProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
               Intent intent = new Intent(ResidentNavigationActivity.this, ResidentViewProfile.class);
                 intent.putExtra("username",username);
-                intent.putExtra("password",password);
                startActivity(intent);
             }
         });
@@ -62,7 +62,6 @@ public class ResidentNavigationActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ResidentNavigationActivity.this, ResidentViewID.class);
                 intent.putExtra("username",username);
-                intent.putExtra("password",password);
                 startActivity(intent);
             }
         });

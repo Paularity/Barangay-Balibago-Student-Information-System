@@ -24,7 +24,7 @@ public class DailyRecordList extends AppCompatActivity {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
-    try{
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_list_layout);
         DatabaseHelper databaseHelper = new DatabaseHelper(this, "studentDB.sqlite", null, 1);
@@ -53,12 +53,8 @@ public class DailyRecordList extends AppCompatActivity {
 
         }
 
-    }catch(Exception ex)
-    {
-        Toast.makeText(getApplicationContext(),"No record/s found!",Toast.LENGTH_SHORT).show();
     }
 
-    }
 
 
     private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.

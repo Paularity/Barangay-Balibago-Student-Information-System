@@ -36,7 +36,7 @@
         <activity
         android:name=".DailyRecordList"
         android:largeHeap="true"
-        android:parentActivityName=".MainActivity" />
+        android:parentActivityName=".NavigationActivity" />
         <activity
         android:name=".ResidentNavigationActivity"
         android:largeHeap="true"
@@ -45,11 +45,11 @@
         <activity
             android:name=".ResidentViewProfile"
             android:largeHeap="true"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".ResidentNavigationActivity" />
         <activity
             android:name=".ResidentViewID"
             android:largeHeap="true"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".ResidentNavigationActivity" />
 
     </application>
 

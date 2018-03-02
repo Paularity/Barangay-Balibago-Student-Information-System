@@ -88,8 +88,6 @@ public class DailyRecordListAdapter extends BaseAdapter {
 
         final Student student = studentList.get(position);
         final DatabaseHelper databaseHelper = new DatabaseHelper(context,"studentDB.sqlite",null,1);
-        try {
-
         holder.txt_ID.setText(Integer.toString(student.getId()));
         holder.txt_fullname.setText(student.getFullname());
         holder.txt_fullname.setGravity(Gravity.CENTER);
@@ -100,8 +98,7 @@ public class DailyRecordListAdapter extends BaseAdapter {
         holder.txt_dateIssued.setText(student.getDateIssued());
         holder.txt_username.setText(student.getUsername());
         holder.txt_password.setText(student.getPassword());
-
-            holder.btn_delete.setOnClickListener(new View.OnClickListener() {
+        holder.btn_delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
@@ -111,11 +108,7 @@ public class DailyRecordListAdapter extends BaseAdapter {
                     context.startActivity(intent);
                 }
             });
-        }
-        catch (Exception ex)
-        {
-            ex.printStackTrace();
-        }
+
         return row;
     }
 
