@@ -12,6 +12,8 @@
         android:id="@+id/lbl_ID"
         android:textStyle="bold"
         android:textSize="20dp"
+        android:layout_below="@+id/txtTitle"
+
         />
 
     <TextView
@@ -210,25 +212,17 @@
         android:text="Password here.."
         android:textSize="20dp" />
 
-    <Button
-        android:id="@+id/btn_delete"
-        android:layout_width="match_parent"
+
+    <TextView
+        android:id="@+id/txtTitle"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/lbl_password"
-        android:backgroundTint="#ff0c00"
-        android:text="DELETE"
-        android:textColor="#ffff" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@android:color/darker_gray"
-        android:layout_below="@id/btn_delete"
-
-        />
-
+        android:textSize="30dp"
+        android:textStyle="bold"
+        android:text="View Profile"
+        android:layout_marginBottom="30sp"/>
 
 
 </RelativeLayout>

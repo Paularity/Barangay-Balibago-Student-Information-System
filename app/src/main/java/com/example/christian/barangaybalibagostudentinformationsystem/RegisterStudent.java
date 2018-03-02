@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -34,10 +35,12 @@ public class RegisterStudent extends AppCompatActivity {
     EditText et_fullname,et_dateOfBirth,et_placeOfBirth,et_citizenship,et_comelecNo,et_dateIssued,et_username,et_password;
     Button btn_upload,btn_register;
     ImageView image;
+    Cursor cursor;
 
     final int REQUEST_CODE_GALLERY = 999;
 
     public static DatabaseHelper databaseHelper;
+    SQLiteDatabase db;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -74,30 +77,41 @@ public class RegisterStudent extends AppCompatActivity {
                     String username = et_username.getText().toString();
                     String password = et_password.getText().toString();
 
+                    db = databaseHelper.getReadableDatabase();
+
+                    String sql = "SELECT * FROM STUDENT WHERE username = ?";
+                    cursor = db.rawQuery( sql, new String[] {username});
+
                 if(!fullname.equals("") && !dateOfBirth.equals("") && !dateOfBirth.equals("") && !placeOfBirth.equals("") &&
                         !citizenship.equals("") && !comelecNo.equals("") && !dateIssued.equals("") && !imageView.equals("")
                         && !username.equals("") && !password.equals("")) {
-                    databaseHelper.insertData(
-                            et_fullname.getText().toString().trim(),
-                            et_dateOfBirth.getText().toString().trim(),
-                            et_placeOfBirth.getText().toString().trim(),
-                            et_citizenship.getText().toString().trim(),
-                            et_comelecNo.getText().toString().trim(),
-                            et_dateIssued.getText().toString().trim(),
-                            imageViewToByte(image),
-                            et_username.getText().toString().trim(),
-                            et_password.getText().toString().trim()
-                    );
-                    Toast.makeText(getApplicationContext(), "Student was added successfully!", Toast.LENGTH_SHORT).show();
-                    et_username.setText("");
-                    et_password.setText("");
-                    et_fullname.setText("");
-                    et_dateOfBirth.setText("");
-                    et_placeOfBirth.setText("");
-                    et_citizenship.setText("");
-                    et_comelecNo.setText("");
-                    et_dateIssued.setText("");
-                    image.setImageResource(R.mipmap.ic_launcher);
+                    if(cursor.getCount() == 0) {
+                        databaseHelper.insertData(
+                                et_fullname.getText().toString().trim(),
+                                et_dateOfBirth.getText().toString().trim(),
+                                et_placeOfBirth.getText().toString().trim(),
+                                et_citizenship.getText().toString().trim(),
+                                et_comelecNo.getText().toString().trim(),
+                                et_dateIssued.getText().toString().trim(),
+                                imageViewToByte(image),
+                                et_username.getText().toString().trim(),
+                                et_password.getText().toString().trim()
+                        );
+                        Toast.makeText(getApplicationContext(), "Student was added successfully!", Toast.LENGTH_SHORT).show();
+                        et_username.setText("");
+                        et_password.setText("");
+                        et_fullname.setText("");
+                        et_dateOfBirth.setText("");
+                        et_placeOfBirth.setText("");
+                        et_citizenship.setText("");
+                        et_comelecNo.setText("");
+                        et_dateIssued.setText("");
+                        image.setImageResource(R.mipmap.ic_launcher);
+                    }
+                    else
+                        {
+                            Toast.makeText(getApplicationContext(),"Resident already exists",Toast.LENGTH_SHORT).show();
+                        }
                 }
                 else
                 {

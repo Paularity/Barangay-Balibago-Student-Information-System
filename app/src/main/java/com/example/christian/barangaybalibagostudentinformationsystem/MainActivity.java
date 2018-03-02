@@ -73,8 +73,9 @@ public class MainActivity extends AppCompatActivity {
 
                 else  if(cursor.getCount() > 0) {
                     Intent intent = new Intent(MainActivity.this, ResidentNavigationActivity.class);
+                    intent.putExtra("username",username);
+                    intent.putExtra("password",password);
                     startActivity(intent);
-                    intent.putExtra(username, password);
                     Toast.makeText(getApplicationContext(),"Login Successfully.",Toast.LENGTH_SHORT).show();
                 }
 

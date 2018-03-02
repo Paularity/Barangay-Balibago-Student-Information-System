@@ -38,9 +38,19 @@
         android:largeHeap="true"
         android:parentActivityName=".MainActivity" />
         <activity
-            android:name=".ResidentNavigationActivity"
+        android:name=".ResidentNavigationActivity"
+        android:largeHeap="true"
+        android:parentActivityName=".MainActivity" />
+
+        <activity
+            android:name=".ResidentViewProfile"
             android:largeHeap="true"
             android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ResidentViewID"
+            android:largeHeap="true"
+            android:parentActivityName=".MainActivity" />
+
     </application>
 
 </manifest>

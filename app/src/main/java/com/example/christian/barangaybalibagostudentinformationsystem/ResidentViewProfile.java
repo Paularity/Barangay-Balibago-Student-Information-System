@@ -4,9 +4,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.Button;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -16,24 +14,36 @@ import java.util.ArrayList;
  * Created by Christian on 26/02/2018.
  */
 
-public class DailyRecordList extends AppCompatActivity {
+public class ResidentViewProfile extends AppCompatActivity {
 
     GridView gridView;
     ArrayList<Student> list;
-    DailyRecordListAdapter adapter = null;
+    ResidentViewProfileAdapter adapter = null;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
     try{
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.student_list_layout);
+        setContentView(R.layout.resident_daily_record_layout);
         DatabaseHelper databaseHelper = new DatabaseHelper(this, "studentDB.sqlite", null, 1);
         gridView = (GridView) findViewById(R.id.gridView);
         list = new ArrayList<>();
-        adapter = new DailyRecordListAdapter(this, R.layout.daily_record_list, list);
+        adapter = new ResidentViewProfileAdapter(this, R.layout.resident_daily_record, list);
         gridView.setAdapter(adapter);
         //get all data from sqlite
-        Cursor cursor = databaseHelper.getData("SELECT * FROM STUDENT");
+        final String uname;
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                uname = null;
+            } else {
+                uname = extras.getString("username");
+
+            }
+        } else {
+            uname= (String) savedInstanceState.getSerializable("username");
+        }
+        Cursor cursor = databaseHelper.getData("SELECT * FROM STUDENT WHERE username = " + "'" + uname + "'");
         list.clear();
         while (cursor.moveToNext()) {
             int id = cursor.getInt(0);
@@ -55,7 +65,7 @@ public class DailyRecordList extends AppCompatActivity {
 
     }catch(Exception ex)
     {
-        Toast.makeText(getApplicationContext(),"No record/s found!",Toast.LENGTH_SHORT).show();
+        Toast.makeText(getApplicationContext(),"There was a problem with your account. Please contact Adminstrator!",Toast.LENGTH_SHORT).show();
     }
 
     }
@@ -72,7 +82,7 @@ public class DailyRecordList extends AppCompatActivity {
             return;
         }
         else {
-            Intent intent = new Intent(DailyRecordList.this, NavigationActivity.class);
+            Intent intent = new Intent(ResidentViewProfile.this, ResidentNavigationActivity.class);
             startActivity(intent);
         }
 
