@@ -82,9 +82,14 @@ public class RegisterStudent extends AppCompatActivity {
                     String sql = "SELECT * FROM STUDENT WHERE username = ?";
                     cursor = db.rawQuery( sql, new String[] {username});
 
-                if(!fullname.equals("") && !dateOfBirth.equals("") && !dateOfBirth.equals("") && !placeOfBirth.equals("") &&
+                    if(username.equals("admin"))
+                    {
+                        Toast.makeText(getApplicationContext(),"Account already exists",Toast.LENGTH_SHORT).show();
+                    }
+
+                    else if(!fullname.equals("") && !dateOfBirth.equals("") && !dateOfBirth.equals("") && !placeOfBirth.equals("") &&
                         !citizenship.equals("") && !comelecNo.equals("") && !dateIssued.equals("") && !imageView.equals("")
-                        && !username.equals("") && !password.equals("") && !username.equals("admin")) {
+                        && !username.equals("") && !password.equals("")) {
                     if(cursor.getCount() == 0) {
                         databaseHelper.insertData(
                                 et_fullname.getText().toString().trim(),
@@ -110,9 +115,11 @@ public class RegisterStudent extends AppCompatActivity {
                     }
 
 
+
+
                     else
                         {
-                            Toast.makeText(getApplicationContext(),"Resident already exists",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Account already exists",Toast.LENGTH_SHORT).show();
                         }
                 }
                 else
